@@ -1,7 +1,7 @@
 # BREADTH-FIRST-SEARCH
 <h1>ExpNo 3 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name:  </h3>
-<h3>Register Number: </h3>
+<h3>Name: HARISH PRANAV </h3>
+<h3>Register Number: 212225040117 </h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -69,6 +69,47 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 </ol>
 
 <hr>
+## PROGRAM
+
+```python
+
+from collections import deque
+
+n, e = map(int, input().split())
+
+graph = {}
+
+for _ in range(e):
+    u, v = input().split()
+
+    if u not in graph:
+        graph[u] = []
+    if v not in graph:
+        graph[v] = []
+
+    graph[u].append(v)
+    graph[v].append(u)
+
+start = list(graph.keys())[0]
+
+visited = set()
+queue = deque([start])
+visited.add(start)
+
+result = []
+
+while queue:
+    node = queue.popleft()
+    result.append(node)
+
+    for neighbour in graph[node]:
+        if neighbour not in visited:
+            visited.add(neighbour)
+            queue.append(neighbour)
+
+print(result)
+
+```
 <h3>Sample Input</h3>
 <hr>
 7 9 <BR>
